@@ -1,1 +1,65 @@
-/* You can add global styles to this file, and also import other style files */
+$gunmetal: #122C34;
+$indigo-blue: #224870;
+$dark-blue: #2A4494;
+$light-blue: #4EA5D9;
+$turquoise: #44CFCB;
+
+$white: #FDFDFD;
+$black: #222;
+$black-2: #333;
+
+$navbar-dark-toggler-border-color:  rgba($white, .9) !important;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100vh;
+}
+
+.app-root {  
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+#main-header {
+  padding: 0 10px;
+  background-color: $gunmetal;
+  color: $white;
+
+  .navbar {
+    max-width: 900px;
+    margin: auto !important;
+  }
+}
+
+#navbar-links {
+  justify-content: flex-end !important;
+}
+
+.navbar-brand p {
+  padding: 0 !important;
+  margin: 0 !important;
+
+  color: $white !important;
+}
+
+#navbar-name {
+  font-size: 16px;
+}
+
+#navbar-description {
+  font-size: 11px;
+}
+
+/* Main section */
+.main-container {
+  flex: 1;
+  background-color: #44CFCB;
+  
+  /*overflow-y: auto;*/
+}

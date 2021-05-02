@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Karantina&family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Karantina&family=Zen+Dots&display=swap');
+
 $gunmetal: #122C34;
 $indigo-blue: #224870;
 $dark-blue: #2A4494;
@@ -13,6 +16,8 @@ $navbar-dark-toggler-border-color:  rgba($white, .9) !important;
 * {
   margin: 0;
   padding: 0;
+
+  font-family: 'Lato', 'Roboto', sans-serif;
 }
 
 html, body {
@@ -25,16 +30,17 @@ html, body {
   flex-direction: column;
 }
 
+.main {
+  max-width: 900px;
+  margin: auto !important;
+}
+
 /* Header */
 #main-header {
   padding: 0 10px;
   background-color: $gunmetal;
   color: $white;
 
-  .navbar {
-    max-width: 900px;
-    margin: auto !important;
-  }
 }
 
 #navbar-links {
@@ -59,7 +65,116 @@ html, body {
 /* Main section */
 .main-container {
   flex: 1;
-  background-color: #44CFCB;
+
+  .main {
+    background-color: #F8F8F8;
+    height: 100%;
+  }
   
   /*overflow-y: auto;*/
 }
+
+.flex {
+  display: flex !important;
+
+  .flex-column {
+    flex-direction: column !important;
+  }
+
+  .flex-row {
+    flex-direction: row !important;
+  }
+}
+
+/* Intro */
+#intro {
+  padding: 30px 0px;
+
+  .column:first-child {
+    /*padding-right: 30px;*/
+    width: 30%;
+    height: 200px;
+  }
+
+  .column:nth-child(2) {
+    flex: 1;
+  }
+
+  .photo {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+    img {
+      height: 80%;
+      border-radius: 50%;    
+    }
+
+    
+  }
+
+  .name {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 5px;
+
+    h1 {
+      color: $gunmetal;
+      font-size: 2rem;
+      font-family: 'Anton';
+    }
+
+    h2 {
+      color: $indigo-blue;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+#education{
+  .education-row {
+    .column {
+      &:last-child {
+        flex: 1;
+        background-color: $dark-blue;
+        padding: 0px 12px 0 12px;
+      }
+    }
+  }
+}
+
+// #education {
+//   .f-row {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     width: 20px;
+//     height: 40px;
+//     margin:0;
+//     padding: 0;
+
+//     img {
+//       width: 20px;
+//       height: 20px;
+//       border-radius: 50%;
+//     }
+
+//     &:not(:last-child) {
+//       &::after {
+//         display: inline-block;
+//         content: '';
+//         position: relative;
+//         top: 0;
+//         left: 0;
+//         width: 1px;
+//         height: 20px;
+//         border-left: 1px solid $dark-blue;
+//       }
+//     }
+//   }
+// }

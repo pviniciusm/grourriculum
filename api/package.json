@@ -2,9 +2,10 @@
   "name": "grourriculo",
   "version": "1.0.0",
   "description": "API grourriculo",
-  "main": "src/index.js",
+  "main": "src/main.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev --ignore-watch node_modules src/main.ts"
   },
   "author": "Paulo Cardoso <pvinics@gmail.com>",
   "license": "MIT",

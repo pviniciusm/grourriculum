@@ -7,7 +7,7 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.status(200).send({
     data: {
-      teste: 'testando...'
+      teste: 'testando... ...'
     },
     message: 'Success'
   });

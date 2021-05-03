@@ -1,15 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Karantina&family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Karantina&family=Zen+Dots&display=swap');
 
-$gunmetal: #122C34;
-$indigo-blue: #224870;
-$dark-blue: #2A4494;
-$light-blue: #4EA5D9;
-$turquoise: #44CFCB;
-
-$white: #FDFDFD;
-$black: #222;
-$black-2: #333;
+@import './colors.scss';
+@import './fonts.scss';
 
 $navbar-dark-toggler-border-color:  rgba($white, .9) !important;
 

@@ -4,11 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeTechnologiesComponent } from './home-technologies/home-technologies.component';
+import { HomeIntroComponent } from './home-intro/home-intro.component';
+import { HomePersonalComponent } from './home-personal/home-personal.component';
+import { HomeEducationComponent } from './home-education/home-education.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeTechnologiesComponent
+    HomeTechnologiesComponent,
+    HomeIntroComponent,
+    HomePersonalComponent,
+    HomeEducationComponent
   ],
   imports: [
     BrowserModule,

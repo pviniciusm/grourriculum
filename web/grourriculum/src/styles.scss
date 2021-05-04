@@ -42,6 +42,12 @@ html, body {
   margin: 0 !important;
 
   color: $white !important;
+  font-family: 'Quicksand', sans-serif !important;
+}
+
+.nav-link {
+  font-family: 'Quicksand', sans-serif !important;
+  color: $white !important;
 }
 
 #navbar-name {
@@ -77,228 +83,46 @@ html, body {
   }
 }
 
-/* Intro */
-#intro {
-  padding: 30px 0 0 0;
-
-  .column:first-child {
-    width: 30%;
-    height: 200px;
-  }
-
-  .column:nth-child(2) {
-    flex: 1;
-  }
-
-  .photo {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    
-    img {
-      height: 80%;
-      border-radius: 50%;    
-    }
-  }
-
-  .name {
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 0 5px;
-
-    h1 {
-      color: $gunmetal;
-      font-size: 2rem;
-      font-family: 'Anton';
-    }
-
-    h2 {
-      color: $indigo-blue;
-      font-size: 1.2rem;
-    }
-  }
-
-  @media (max-width:700px) {
-    .column:first-child {
-      width: 25%;
-      height: 140px;
-    }
-
-    .name {
-      h1 {
-        font-size: 1.8rem;
-      }
-
-      h2 {
-        font-size: 1rem;
-      }
-    }
-  }
-
-  @media (max-width: 560px) {
-    .column:first-child {
-      width: 35%;
-      height: 120px;
-    }
-  }
-
-  @media (max-width: 400px) {
-    .column:first-child {
-      width: 40%;
-      height: 120px;
-    }
-  }
-}
-
-/* Education */
-#education{
-  padding:30px 20px;
-  background-color: $white;
-
-  .education-title {
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin-bottom: 18px;
-  }
-
-  .education-row {
-    .education-info {
-      flex: 1;
-      padding: 0px 12px 22px 12px;
-      
-      h1, h2, h3 {
-        font-family: 'Roboto', 'Lato', sans-serif;
-      }
-
-      h1 {
-        font-family: 'Anton';
-        font-size: 1.3rem;
-        line-height: 1.3rem;
-      }
-
-      h2, h3 {
-        font-size: 1rem;
-        line-height: 1rem;
-      }
-    }
-
-    .progress-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      
-      .progress-item {
-        background-color: $dark-blue;
-        height: 20px;
-        width: 20px;
-        border-radius: 50%;
-      }
-
-      .progress-line {
-        flex:1;
-        background-color: $dark-blue;
-        width: 2px;
-
-      }
-    }
-  }
-
-  .education-row:last-child {
-    .progress-line {
-      display: none;
-    }
-
-    .education-info {
-      padding-bottom: 0;
-    }
-  }
-
-  > .flex-column:last-child {
-    
-    margin-left: 60px;
-
-    .progress-line, .progress-item {
-      background-color: $indigo-blue;
-    }
-  }
-
-  @media (max-width: 700px) {
-    flex-direction: column !important;
-    
-    > .flex-column:last-child {
-      flex: 1;
-      margin-left: 0;
-      margin-top: 30px;
-    }
-  }
-}
-
-/* Personal */
-#personal {
-  padding: 20px 30px;
+/* Comentarios */
+#comments {
 
   > .flex {
-    align-content: flex-start;
-  }
-
-  > .flex:first-child {
-    width: 40%; 
     flex-wrap: wrap;
+    justify-content: space-evenly;
   }
 
-  > .flex:last-child {
-    flex: 1;
-  }
+  .comment {
+    background-color: rosybrown;
+    border-radius: 10px;
+    margin: 0 6px 16px 6px;
+    padding: 10px 20px;
+    min-width: 300px;
+    width: 300px;
 
-  .personal-info {
-    width: 50%;
-    padding-right: 12px;
-    margin-bottom: 12px;
-
-    h1 {
-      font-size: .95rem;
-      font-weight: bold;
-      color: $light-blue;
+    span {
+      font-family: 'Montserrat';
     }
 
-    h2 {
-      font-size: 1rem;
-      color: $gunmetal;
-      overflow-x: hidden;
+    span:first-child {
+      color:blue;
+      font-size: 2rem;
+      font-family: 'Times New Roman', Times, serif;
+      margin-right: 8px;
     }
-  }
 
-  .resumo {
-    width: 100%;
-
-    h1 {
-      font-size: 1.2rem !important;
+    .comment-author {
+      text-align: center;
+      color: white;
+      margin-top: 12px;
+      margin-bottom: 0;
     }
-    h2 {
-      font-size: .95rem;
-    }
-  }
 
-  @media (max-width:800px) {
-    .personal-info:not(.resumo) h1 {
-      font-size: .8rem;
-    }
-    .personal-info:not(.resumo) h2 {
-      font-size: .85rem;
-    }
-  }
-
-  @media (max-width:700px) {
-    flex-direction: column !important;
-
-    > .flex {
-      width: 100% !important;
+    .comment-relation {
+      text-align: center;
+      color: black;
+      margin-bottom: 0;
     }
   }
 }
+
 

@@ -7,6 +7,8 @@ import { HomeTechnologiesComponent } from './home-technologies/home-technologies
 import { HomeIntroComponent } from './home-intro/home-intro.component';
 import { HomePersonalComponent } from './home-personal/home-personal.component';
 import { HomeEducationComponent } from './home-education/home-education.component';
+import { NguCarouselModule } from '@ngu/carousel';
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { HomeEducationComponent } from './home-education/home-education.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NguCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -45,28 +45,26 @@
     <div id="comments" class="flex flex-column" style="margin-bottom: 240px;">
       <h1>Comentários</h1>
       <div class="flex flex-row">
-        <div class="comment">
-          <div>
-            <span>"</span>
-            <span>Textp texto texto textp sdfd dsf sdfdsf sdf sdfdsfdsfdsf dsf sdfdsfdsf</span>
-          </div>
-          <p class="comment-author">Autor do texto</p>
-          <p class="comment-relation">parentesco</p>
-        </div>
-        <div class="comment">
-          <span>"</span>
-          <p>Texto texto texto</p>
-          <p>Autor do texto</p>
-          <p>parentesco</p>
-        </div>
-        <div class="comment">
-          <span>TESTE</span>
-          <p>Texto texto texto</p>
-          <p>Autor do texto</p>
-          <p>parentesco</p>
-        </div>
+        <div class="carousel-wrapper">
+          <ngu-carousel #myCarousel id="carousel" [inputs]="carouselTile" [dataSource]="comentarios" (onMove)="onMoveCarouselEvent($event)">
+            <div *nguCarouselDef="let item;" class="carouselTile item">
+              <div class="comment">
+                <p><span>"</span>{{item.name}}</p>
+                <p>Autor do texto</p>
+                <p>parentesco</p>
+              </div>
+            </div>
 
-        
+            <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 1:1"></button>
+            <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 1:1"></button>
+
+            <ul id="dotButtons" class="myPoint" NguCarouselPoint>
+              <li *ngFor="let j of myCarousel.pointNumbers; let x = index" [class.active]="x==myCarousel.activePoint" (click)="myCarousel.moveTo(x)">
+                <div></div>
+              </li>
+            </ul>
+          </ngu-carousel>
+        </div>
       </div>
 
       <div class="flex flex-row" style="justify-content: space-between; padding: 10px 50px">

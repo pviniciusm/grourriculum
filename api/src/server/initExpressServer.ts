@@ -1,6 +1,5 @@
 import express from 'express';
 import CommentController from '../controllers/CommentController';
-// import Comment from '../models/Comment';
 
 const initExpressServer = () => {
   const app = express();

@@ -1,13 +1,14 @@
 import express from 'express';
-import Comment from '../models/Comment';
+import CommentController from '../controllers/CommentController';
+// import Comment from '../models/Comment';
 
 const initExpressServer = () => {
   const app = express();
   app.use(express.json());
 
   app.get('/', async (req, res) => {
-    const commentModel = new Comment();
-    const comments = await commentModel.list();
+    const commentModel = new CommentController();
+    const comments = await commentModel.listSummarized(1);
 
     res.status(200).send({
       data: {

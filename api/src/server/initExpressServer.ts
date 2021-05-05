@@ -1,17 +1,17 @@
 import express from 'express';
-import User from '../models/TestUser';
+import Comment from '../models/Comment';
 
 const initExpressServer = () => {
   const app = express();
   app.use(express.json());
 
   app.get('/', async (req, res) => {
-    const users = await User.find();
+    const comments = await Comment.find();
 
     res.status(200).send({
       data: {
         teste: 'testando...',
-        users
+        comments
       },
       message: 'Success'
     });

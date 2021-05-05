@@ -1,9 +1,25 @@
 import mongoose from 'mongoose';
 
+const getConnectionUri = () => {
+  const environment = process.env.npm_config_config || 'local';
+
+  require('dotenv').config({
+    path: environment !== 'production'
+      ? '.env.' + environment
+      : '.env'
+  });
+
+  if (environment === 'local') {
+    return `${process.env.DBTYPE}://${process.env.DBURI}:27017/${process.env.DATABASE}`;
+  }
+
+  return `${process.env.DBTYPE}://${process.env.DBUSER}:${process.env.DBPASS}@${process.env.DBURI}/${process.env.DATABASE}?retryWrites=true&writeConcern=majority`;
+};
+
 const initDefaultConnection = (successCallback: () => void): void => {
   if (mongoose.connection.readyState === 0) {
-    const pass = 'FfG9f0FbVglw1c8L';
-    const uri = 'mongodb+srv://node-grou-user:' + pass + '@groucluster.097u6.mongodb.net/test-user?retryWrites=true&writeConcern=majority';
+    const uri = getConnectionUri();
+    console.log(uri);
 
     mongoose.connect(uri, {
       useNewUrlParser: true,

@@ -3,3 +3,5 @@ node_modules/
 coverage/
 
 _todo.txt
+.env
+.env.local

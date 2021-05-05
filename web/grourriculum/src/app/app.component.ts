@@ -11,16 +11,16 @@ export class AppComponent implements OnInit, DoCheck {
 
   title = 'grourriculum';
   comentarios: any[] = [
-    {name: 'Comentário 1', titulo: 'Teste1'},
-    {name: 'Comentário 2', titulo: 'Teste'},
-    {name: 'Comentário 3', titulo: 'Teste'},
-    {name: 'Comentário 4', titulo: 'Teste'},
-    {name: 'Comentário 5', titulo: 'Teste'},
-    {name: 'Comentário 6', titulo: 'Teste'},
-    {name: 'Comentário 7', titulo: 'Teste'},
-    {name: 'Comentário 8', titulo: 'Teste'},
-    {name: 'Comentário 9', titulo: 'Teste'},
-    {name: 'Comentário 10', titulo: 'Teste'}
+    {name: 'Pessoa 1', comment: 'Bla bla bla bla bla bla bla bla blé bla.', relation: 'Amigo'},
+    {name: 'Pessoa 2', comment: 'Bla bla bla bla bla bla bla bla blé bla.', relation: 'Amigo'},
+    {name: 'Pessoa 3', comment: 'Bla bla bla bla bla bla bla bla blé bla.', relation: 'Amigo'},
+    {name: 'Pessoa 4', comment: 'Bla bla.', relation: 'Amigo'},
+    {name: 'Pessoa 5', comment: 'Bla bla bla bla bla bla bla bla blé bla.', relation: 'Amigo'},
+    {name: 'Pessoa 6', comment: 'Bla bla bla bla bla bla bla bla blé bla.', relation: 'Amigo'},
+    {name: 'Pessoa 7', comment: 'Bla bla bla bla bla bla bla bla blé bla.', relation: 'Amigo'},
+    {name: 'Pessoa 8', comment: 'Bla bla bla bla bla bla bla bla blé bla.', relation: 'Amigo'},
+    {name: 'Pessoa 9', comment: 'Bla bla bla bla bla bla bla bla blé bla.', relation: 'Amigo'},
+    {name: 'Pessoa 10', comment: 'Bla bla bla bla bla bla bla bla blé bla.', relation: 'Amigo'}
   ];
 
   carouselTile: NguCarouselConfig;
@@ -39,25 +39,17 @@ export class AppComponent implements OnInit, DoCheck {
       loop: true,
   
       interval: {
-        timing: 9999999,
+        timing: 4000,
         initialDelay: 1
       },
       animation: 'lazy'
     };
   }
 
-  onMoveCarouselEvent(event): void {
-    // let i = event.currentSlideItems;
-
-    // if(i < 0) {
-    //   i = 0;
-    // }
-
-    // if(i>= this.ofertasBackup.length) {
-    //   i = this.ofertasBackup.length - 1;
-    // }
-  }
-
   ngDoCheck() { }
+
+  clickComment() {
+    alert('Você clicou no comentário! Enviaremos ao backend assim que possível.');
+  }
  
 }

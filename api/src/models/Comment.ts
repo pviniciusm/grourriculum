@@ -14,11 +14,13 @@ const commentSchema: Schema = new Schema({
   content: { type: String, required: true }
 });
 
-// const Comment: Model<IComment> = model('Comment', commentSchema);
-
 class Comment extends Model<IComment> {
   constructor () {
     super('Comment', commentSchema);
+  }
+
+  async listSummarized (index: number) {
+    return await this._model.find().limit(index);
   }
 }
 

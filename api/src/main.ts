@@ -1,16 +1,8 @@
-import express from 'express';
+import initExpressServer from './server/initExpressServer';
+import initDefaultConnection from './database/initConnection';
 
-const app = express();
-
-app.use(express.json());
-
-app.get('/', (req, res) => {
-  res.status(200).send({
-    data: {
-      teste: 'testando...'
-    },
-    message: 'Success'
-  });
-});
-
-app.listen(3333);
+try {
+  initDefaultConnection(initExpressServer);
+} catch (err) {
+  console.log(err);
+}

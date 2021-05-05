@@ -6,7 +6,8 @@ const initExpressServer = () => {
   app.use(express.json());
 
   app.get('/', async (req, res) => {
-    const comments = await Comment.find();
+    const commentModel = new Comment();
+    const comments = await commentModel.list();
 
     res.status(200).send({
       data: {

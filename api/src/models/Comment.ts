@@ -1,4 +1,5 @@
-import { model, Document, Model, Schema } from 'mongoose';
+import { Document, Schema } from 'mongoose';
+import Model from './Model';
 
 interface IComment extends Document {
   id?: Object,
@@ -13,7 +14,13 @@ const commentSchema: Schema = new Schema({
   content: { type: String, required: true }
 });
 
-const Comment: Model<IComment> = model('Comment', commentSchema);
+// const Comment: Model<IComment> = model('Comment', commentSchema);
+
+class Comment extends Model<IComment> {
+  constructor () {
+    super('Comment', commentSchema);
+  }
+}
 
 export default Comment;
 export { IComment };

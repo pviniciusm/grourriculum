@@ -1,6 +1,6 @@
 import { Document, FilterQuery, model, Model as MongooseModel, Schema } from 'mongoose';
 
-class Model<T extends Document> {
+abstract class Model<T extends Document> {
   protected _model: MongooseModel<T>;
 
   constructor (modelName: string, modelSchema: Schema, _model?: MongooseModel<T>) {
@@ -11,12 +11,12 @@ class Model<T extends Document> {
     return await this._model.create(data);
   }
 
-  async get (filter?: FilterQuery<T>): Promise<T> {
-    return await this._model.findOne(filter);
+  async get (filter?: object): Promise<T> {
+    return await this._model.findOne(filter as FilterQuery<T>);
   }
 
-  async list (filter?: FilterQuery<T>): Promise<T[]> {
-    return await this._model.find(filter);
+  async list (filter?: object): Promise<T[]> {
+    return await this._model.find(filter as FilterQuery<T>);
   }
 }
 

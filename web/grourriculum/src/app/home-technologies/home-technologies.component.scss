@@ -1,11 +1,11 @@
 @import '../../colors.scss';
 
 #technologies {
-  padding: 20px 40px;
+  padding: 60px 30px;
   background-color: $indigo-blue;
   color:$white;
   align-items: center;
-  min-height: 300px;
+  min-height: 150px;
 
   > .flex {
     flex-wrap: wrap;

@@ -6,7 +6,7 @@
   padding: 30px 0 0 0;
 
   .column:first-child {
-    width: 30%;
+    width: 25%;
     height: 200px;
   }
 
@@ -38,7 +38,8 @@
     h1 {
       color: $gunmetal;
       font-size: 2rem;
-      font-family: 'Anton';
+      font-family: 'Mulish', 'Anton';
+      font-weight: 800;
     }
 
     h2 {
@@ -66,14 +67,14 @@
 
   @media (max-width: 560px) {
     .column:first-child {
-      width: 35%;
+      width: 25%;
       height: 120px;
     }
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 450px) {
     .column:first-child {
-      width: 40%;
+      width: 35%;
       height: 120px;
     }
   }

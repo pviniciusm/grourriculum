@@ -7,6 +7,10 @@ class CommentController {
     this._model = model || new Comment();
   }
 
+  async create (data: any) {
+    return await this._model.create(data);
+  }
+
   async list () {
     return await this._model.list();
   }

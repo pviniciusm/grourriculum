@@ -1,3 +1,4 @@
+import Infra, { Return } from 'dev-infra';
 import { Document, Schema } from 'mongoose';
 import Model from './Model';
 
@@ -19,8 +20,18 @@ class Comment extends Model<IComment> {
     super('Comment', commentSchema);
   }
 
-  async listSummarized (index: number) {
-    return await this._model.find().limit(index);
+  async listSummarized (index: number): Promise<Return> {
+    try {
+      const ret = await this._model.find().limit(index);
+
+      if (!ret) {
+        return new Infra.Error('Unknown error at object create');
+      }
+
+      return new Infra.Success(ret);
+    } catch (err) {
+      return new Infra.Exception(err.toString());
+    }
   }
 }
 

@@ -1,32 +1,4 @@
-<header class="container-fluid" id="main-header">
-  <nav class="navbar navbar-expand-md navbar-dark main">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">
-        <p id="navbar-name">Paulo Cardoso</p>
-        <p id="navbar-description">Grourriculum</p>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbar-links">
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#education">Experiências</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#technologies">Tecnologias</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Comentários</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#personal">Contato</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
+<app-header></app-header>
 
 <section class="main-container">
   <div class="main">
@@ -42,53 +14,7 @@
     <!-- Technologies section -->
     <app-home-technologies></app-home-technologies>
 
-    <div id="comments" class="flex flex-column" style="margin-bottom: 240px;">
-      <h1>Comentários</h1>
-      <div class="flex flex-row">
-        <div class="carousel-wrapper">
-          <ngu-carousel #myCarousel id="carousel" [inputs]="carouselTile" [dataSource]="comentarios">
-            <div *nguCarouselDef="let item;" class="carouselTile item">
-              <div class="comment">
-                <p class="comment-text"><span>"</span>{{item.comment}}</p>
-                <p class="comment-author">{{item.name}}</p>
-                <p class="comment-relation">{{item.relation}}</p>
-              </div>
-            </div>
-
-            <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 1:1"></button>
-            <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 1:1"></button>
-
-            <ul id="dotButtons" class="myPoint" NguCarouselPoint>
-              <li *ngFor="let j of myCarousel.pointNumbers; let x = index" [class.active]="x==myCarousel.activePoint" (click)="myCarousel.moveTo(x)">
-                <div></div>
-              </li>
-            </ul>
-          </ngu-carousel>
-        </div>
-      </div>
-
-      <div id="sendComment" class="flex flex-row">
-        <div id="send-comment-image">
-          <img src="../assets/img/opinions.svg" alt="Send me a positive comment!">
-        </div>
-        <div id="send-comment-form-wrapper" class="flex flex-column">
-          <h1>Deixe um comentário!</h1>
-          <h2>Desde que não seja ruim ;)</h2>
-          <div class="comment-form flex flex-column">
-            <label for="">Nome</label>
-            <input type="text" placeholder="Digite seu nome">
-
-            <label for="">Relação</label>
-            <input type="text" placeholder="De onde você o conhece?">
-
-            <label for="">Comentário</label>
-            <textarea name="comment-form-text" id="comment-form-text" cols="30" rows="3"></textarea>
-
-            <button (click)="clickComment()">Enviar</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <app-home-comments></app-home-comments>
   </div>
 </section>
 

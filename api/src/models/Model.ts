@@ -13,7 +13,7 @@ abstract class Model<T extends Document> {
       const ret = await this._model.create(data as T);
 
       if (!ret) {
-        return new Infra.Error('Unknown error at object Create');
+        return new Infra.Error('Unknown error at object create');
       }
 
       return new Infra.Success(ret);
@@ -27,7 +27,7 @@ abstract class Model<T extends Document> {
       const ret = await this._model.findOne(filter as FilterQuery<T>);
 
       if (!ret) {
-        return new Infra.Error('Unknown error at object Create');
+        return new Infra.Error('Unknown error at object get');
       }
 
       return new Infra.Success(ret);
@@ -41,7 +41,7 @@ abstract class Model<T extends Document> {
       const ret = await this._model.find(filter as FilterQuery<T>);
 
       if (!ret) {
-        return new Infra.Error('Unknown error at object Create');
+        return new Infra.Error('Unknown error at object list');
       }
 
       return new Infra.Success(ret);

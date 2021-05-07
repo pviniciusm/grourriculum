@@ -2,7 +2,7 @@
   <h1>Comentários</h1>
   <div class="flex flex-row">
 
-    <div class="carousel-wrapper" #carouselWrapper id="carrWrap" *ngIf="!loading; else commentLoading">
+    <div class="carousel-wrapper" #carouselWrapper id="carrWrap" >
       <ngu-carousel #myCarousel id="carousel" [inputs]="carouselTile" [dataSource]="comentarios">
         <div *nguCarouselDef="let item;" class="carouselTile item">
           <div class="comment">
@@ -23,7 +23,7 @@
       </ngu-carousel>
     </div>
 
-    <div class="flex flex-row comment-loading" #commentLoading>
+    <div class="flex flex-row comment-loading" *ngIf="loading">
       <div id="carouselSpinner" class="spinner-border text-primary" role="status">
         <span class="visually-hidden"></span>
       </div>
@@ -43,12 +43,12 @@
         <input id="formName" type="text" placeholder="Digite seu nome" [(ngModel)]="formName">
 
         <label for="formRelation">Relação</label>
-        <input id="formRelation" type="text" placeholder="De onde você o conhece?" [(ngModel)]="formRelation">
+        <input id="formRelation" type="text" required placeholder="De onde você me conhece?" minlength="2" [(ngModel)]="formRelation">
 
         <label for="comment-form-text">Comentário</label>
         <textarea name="comment-form-text" id="comment-form-text" cols="30" rows="3" [(ngModel)]="formComment"></textarea>
 
-        <button [class]="btnDisabled ? 'loading' : ''"  id="sendCommentButton" (click)="clickComment()">
+        <button ([class])="btnDisabled ? 'loading' : ''"  id="sendCommentButton" (click)="clickComment()">
           <div id="commentSpinner" class="spinner-border text-primary" role="status">
             <span class="visually-hidden"></span>
           </div>

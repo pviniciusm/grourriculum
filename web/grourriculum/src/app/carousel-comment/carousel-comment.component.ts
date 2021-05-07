@@ -32,7 +32,7 @@ export class CarouselCommentComponent implements OnInit {
       animation: 'lazy'
     };
 
-    this.backendService.listComments().subscribe((response:any) => {
+    this.backendService.listComments((response:any) => {
       this.comentarios = [];
 
       const lit = response.data;

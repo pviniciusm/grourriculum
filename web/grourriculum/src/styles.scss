@@ -13,6 +13,10 @@ $navbar-dark-toggler-border-color:  rgba($white, .9) !important;
   font-family: 'Lato', 'Roboto', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html, body {
   height: 100vh;
 }

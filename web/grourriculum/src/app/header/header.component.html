@@ -1,7 +1,7 @@
 <header class="container-fluid" id="main-header">
   <nav class="navbar navbar-expand-md navbar-dark main">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand" routerLink="/" routerLinkActive="true">
         <p id="navbar-name">Paulo Cardoso</p>
         <p id="navbar-description">Grourriculum</p>
       </a>
@@ -11,16 +11,16 @@
       <div class="collapse navbar-collapse" id="navbar-links">
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#education">Experiências</a>
+            <a class="nav-link" (click)="routeToDiv('education')">Experiências</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#technologies">Tecnologias</a>
+            <a class="nav-link" (click)="routeToDiv('technologies')">Tecnologias</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#comments">Comentários</a>
+            <a class="nav-link" (click)="routeToDiv('comments')">Comentários</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/contato">Contato</a>
+            <a class="nav-link" routerLink="/contato" routerLinkActive="true">Contato</a>
           </li>
         </ul>
       </div>

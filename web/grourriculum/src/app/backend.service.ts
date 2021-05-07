@@ -10,19 +10,36 @@ export class BackendService {
 
   private backendUrl: string = 'http://localhost:3333/api';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient) { }
 
-  listComments(): Observable<any> {
-    return this.http.get(this.backendUrl + '/comments')
+  listComments(callback: any): void {
+    let apiURL = this.backendUrl + '/comments'
+    this.http.get(apiURL)
       .pipe(
         catchError(this.handleError)
-      );
+      )
+      .toPromise()
+      .then(callback);
   }
 
   postComment(campos: object) {
-    return this.http.post(this.backendUrl + '/comments', campos)
+    return this.http
+      .post(this.backendUrl + '/comments', campos)
+      .pipe(
+        catchError(this.handleError)
+      )
       .toPromise();
-      // .then(callback);
+  }
+
+  postContact(campos: object) {
+
+    return this.http
+      .post(this.backendUrl + '/contact', campos)
+      .pipe(
+        catchError(this.handleError)
+      )
+      .toPromise();
   }
 
   errorHandling (err) {
@@ -32,15 +49,21 @@ export class BackendService {
     throw new Error;
   }
 
-  list(callback: any) {
+  list(callback: any, errorCallback?: any) {
     let apiURL = this.backendUrl + '/comments'
     this.http.get(apiURL)
+      // .pipe(
+      //   catchError(this.handleError)
+      // )
       .toPromise()
-      .then(callback);
+      .then(callback)
+      .catch(errorCallback);
   }
 
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';
+    console.log(error);
+    
     if (error.error instanceof ErrorEvent) {
       // Erro ocorreu no lado do client
       errorMessage = error.error.message;
@@ -49,6 +72,8 @@ export class BackendService {
       errorMessage = `Código do erro: ${error.status}, ` + `menssagem: ${error.message}`;
     }
     console.log(errorMessage);
-    return throwError(errorMessage);
+    
+
+    return new Observable();
   };
 }

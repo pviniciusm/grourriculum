@@ -1,8 +1,9 @@
-import { Component, DoCheck, OnChanges, OnInit, ChangeDetectionStrategy, ViewChild, Input, ElementRef  } from '@angular/core';
+import { Component, DoCheck, OnChanges, OnInit, ChangeDetectionStrategy, ViewChild, Input, ElementRef, ChangeDetectorRef  } from '@angular/core';
 import { NguCarouselConfig, NguCarousel  } from '@ngu/carousel';
 import { BackendService } from '../backend.service';
 
 import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalErrorComponent } from '../modal-error/modal-error.component';
 
 @Component({
   selector: 'ngbd-modal-content',
@@ -34,7 +35,7 @@ export class NgbdModalContent {
   styleUrls: ['./home-comments.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeCommentsComponent implements OnInit {
+export class HomeCommentsComponent implements OnInit, DoCheck {
 
   comentarios: any[] = [];
   carouselTile: NguCarouselConfig;
@@ -53,6 +54,7 @@ export class HomeCommentsComponent implements OnInit {
   responseMessage = '';
 
   loading = true;
+  loaded = false;
 
   constructor(
     private backendService: BackendService,
@@ -83,6 +85,9 @@ export class HomeCommentsComponent implements OnInit {
       this.comentarios = lit || [];
 
       this.loading = false;
+      this.loaded = true;
+    }, (err) => {
+      console.error(err);
     });
   }
 
@@ -92,7 +97,17 @@ export class HomeCommentsComponent implements OnInit {
     }
 
     if(!this.formComment) {
-      this.open(this.content);
+      this.alternativeOpen('Atencão!', 'Digite o conteudo do comentário');
+      return;
+    }
+
+    if(!this.formRelation) {
+      this.alternativeOpen('Atencão!', 'Informe seu grau de parentesco ou proximidade.');
+      return;
+    }
+
+    if(!this.formName) {
+      this.alternativeOpen('Atencão!', 'Informe seu nome para publicar um comentário.');
       return;
     }
 
@@ -105,9 +120,18 @@ export class HomeCommentsComponent implements OnInit {
       content: this.formComment
     };
 
-//    this.toggleButton();
     this.backendService.postComment(campos).then((res: any) => {
-      this.comentarios.splice(0, 0, res.data);
+      console.log(res.data);
+      const returned = res.data || {};
+      
+      if(!returned.ok) {
+        alert('Falha');
+        this.toggleButton();
+        return;
+      }
+
+      this.comentarios.splice(0, 0, returned.data);
+
       this.open(this.content);
 
       this.formComment = '';
@@ -116,17 +140,19 @@ export class HomeCommentsComponent implements OnInit {
 
       this.toggleButton();
     }).catch(err => {
-      console.log('Erro');
       console.log(err);
-
-      alert('erro');
       this.toggleButton();
     });
+  }
+
+  alternativeOpen(title, contText) {
+    const modalRef = this.modalService.open(ModalErrorComponent);
+    modalRef.componentInstance.title = title;
+    modalRef.componentInstance.contentText = contText;
   }
   
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      //this.carouselWrapper.nativeElement.focus();
       window.location.hash = '#comments';
       this.myCarousel.moveTo(0);
     })
@@ -146,6 +172,10 @@ export class HomeCommentsComponent implements OnInit {
     } else {
       this.txtEnviar = 'Enviar';
     }
+  }
+
+  ngDoCheck() {
+    this.loading = !this.loaded;
   }
   
 }

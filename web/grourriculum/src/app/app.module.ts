@@ -14,12 +14,11 @@ import { HomeEducationComponent } from './home-education/home-education.componen
 import { BackendService } from './backend.service';
 import 'hammerjs';
 import { HomeCommentsComponent } from './home-comments/home-comments.component';
-import { CardCommentComponent } from './card-comment/card-comment.component';
 import { CarouselCommentComponent } from './carousel-comment/carousel-comment.component';
-import { HomeSendCommentComponent } from './home-send-comment/home-send-comment.component';
 import { HeaderComponent } from './header/header.component';
 import { PageHomeComponent } from './page-home/page-home.component';
 import { PageContactComponent } from './page-contact/page-contact.component';
+import { ModalErrorComponent } from './modal-error/modal-error.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,8 @@ import { PageContactComponent } from './page-contact/page-contact.component';
     CarouselCommentComponent,
     HeaderComponent,
     PageHomeComponent,
-    PageContactComponent
+    PageContactComponent,
+    ModalErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +42,7 @@ import { PageContactComponent } from './page-contact/page-contact.component';
     NgbModule,
     FormsModule
   ],
-  providers: [
-    BackendService
-  ],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
